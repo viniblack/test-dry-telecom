@@ -1,100 +1,89 @@
 # Test Dry Telecom
 
-Projeto simples para consulta de frete baseado no CEP utilizando React, TypeScript, React Hook Form, Zod e Axios no frontend
-e no backend express e axios
+Aplicação simples para consulta de valor de frete via CEP, construída com React, TypeScript e Node.js. Utiliza React Hook Form e Zod para validação, Axios para comunicação HTTP, além de uma API Express para o backend.
 
 ---
 
-## Sobre
+## Visão Geral
 
-Este projeto tem como objetivo permitir que o usuário consulte o valor do frete a partir do CEP informado. A aplicação faz uma requisição para uma API local que retorna os dados do endereço e o valor do frete correspondente.
+Este projeto permite que o usuário consulte o valor do frete a partir do CEP informado. O frontend envia a requisição para uma API local que retorna os dados do endereço e o custo do frete correspondente.
 
-A interface usa um input estilizado em formato OTP para a entrada do CEP.
+A interface apresenta um campo de entrada de CEP estilizado em formato OTP para melhor usabilidade.
 
 ---
 
-## Tecnologias usadas
+## Tecnologias Utilizadas
 
-- React 18 (Next.js)
-- TypeScript
-- React Hook Form
-- Zod (validação de formulário)
-- Axios (requisições HTTP)
-- Sonner (notificações/toasts)
-- Tailwind CSS (estilização)
-- Shadcn/ui
+- **Frontend:** React 18 (Next.js), TypeScript, React Hook Form, Zod, Axios, Sonner (notificações), Tailwind CSS, Shadcn/ui  
+- **Backend:** Node.js com Express, Axios  
 
 ---
 
 ## Estrutura do Projeto
 
-- `src/pages/index.tsx`: Componente principal com o formulário de consulta de frete.
-- `src/components/ui/`: Componentes UI reutilizáveis.
-- `src/lib/`: Funções auxiliares e tipos (opcional, conforme o projeto).
-- API local que responde no endpoint `/frete` para consulta de frete via CEP.
+- `src/pages/index.tsx` – Página principal com formulário de consulta de frete  
+- `src/components/ui/` – Componentes reutilizáveis de interface  
+- `src/lib/` – Funções auxiliares e tipos TypeScript  
+- **API backend:** Endpoint `/frete` que retorna dados de frete com base no CEP informado  
 
 ---
 
-## Como rodar o projeto localmente
+## Como Executar Localmente
 
-1. Clone o repositório
+1. Clone o repositório:
 
 ```bash
 git clone https://github.com/viniblack/test-dry-telecom.git
 cd test-dry-telecom
 ```
 
-2. Instale as dependências
-###  Front-end
+2. Instale as dependências:
+
+**Frontend:**
 
 ```bash
 cd frontend
-
 npm install
-# ou
-yarn install
+# ou yarn install
 ```
 
-### Back-end
+**Backend:**
 
 ```bash
 cd backend
-
 npm install
-# ou
-yarn install
+# ou yarn install
 ```
 
-3. Execute a aplicação
-### Front-end
+3. Execute a aplicação:
 
-```bash
-npm run dev
-# ou
-yarn dev
-```
+**Backend:**
 
-### Back-end
 ```bash
 nodemon index.js
 ```
 
-4. Certifique-se que a API local esteja rodando em `http://localhost:5000/frete` para que a consulta de frete funcione.
+**Frontend:**
+
+```bash
+npm run dev
+# ou yarn dev
+```
+
+4. Verifique que a API esteja rodando em `http://localhost:5000/frete` para o funcionamento correto da consulta.
 
 ---
 
-## Uso
+## Como Usar
 
-- Digite um CEP válido no campo de entrada (8 dígitos).
-- Clique em "Calcular".
-- O valor do frete será exibido abaixo do formulário.
-- Caso o CEP esteja incorreto, uma mensagem de erro será exibida.
+- Insira um CEP válido (8 dígitos) no campo de entrada.  
+- Clique em **Calcular**.  
+- O valor do frete e informações do endereço serão exibidos abaixo do formulário.  
+- Em caso de CEP inválido, uma mensagem de erro aparecerá via notificação.
 
 ---
 
-## API esperada
-
-A API deve responder com um JSON no formato:
+## Exemplo de Resposta da API
 
 ```json
 {
@@ -109,19 +98,15 @@ A API deve responder com um JSON no formato:
 
 ---
 
-## Validação
+## Validações e Feedback
 
-- O campo CEP requer exatamente 8 dígitos.
-- Notificações são exibidas para sucesso ou erro na consulta.
-
----
-
-## Melhorias futuras
-
-- Adicionar máscara de entrada para CEP.
-- Validar CEP diretamente pela API dos Correios.
-- Tratar loading e estados de requisição.
-- Testes unitários e e2e.
-- Integração com API real de frete.
+- O CEP deve conter exatamente 8 dígitos numéricos.  
+- Notificações (toasts) exibem sucesso ou erros durante a consulta.  
 
 ---
+
+## Próximas Melhorias
+
+- Validar CEP diretamente usando API oficial dos Correios.  
+- Criar testes unitários e end-to-end.  
+- Integrar com uma API real de cálculo de frete.
